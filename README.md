@@ -1,13 +1,13 @@
 # Knowledge Base Skills
 
-A [Claude Code](https://claude.ai/code) plugin for building and maintaining personal knowledge bases with LLMs.
+A collection of skills for building and maintaining personal knowledge bases with LLM agents.
 
 Inspired by [Andrej Karpathy's tweet](https://x.com/kaborsky) on LLM Knowledge Bases — the idea that LLMs are increasingly useful not just for writing code, but for compiling, maintaining, and querying structured knowledge. Raw data goes in, a wiki comes out, and the LLM owns the entire lifecycle: ingesting sources, writing articles, linking concepts, answering questions, and continuously improving data quality. You rarely touch the wiki directly — it's the domain of the LLM.
 
 > *"raw data from a given number of sources is collected, then compiled by an LLM into a .md wiki, then operated on by various CLIs by the LLM to do Q&A and to incrementally enhance the wiki, and all of it viewable in Obsidian."*
 > — Andrej Karpathy
 
-This plugin provides the skills to make that workflow real inside Claude Code.
+These skills make that workflow real inside any LLM agent.
 
 ## Installation
 
