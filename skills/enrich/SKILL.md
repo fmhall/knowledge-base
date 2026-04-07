@@ -1,5 +1,5 @@
 ---
-name: enrich-knowledge-graph
+name: enrich
 description: "Enrich people in a knowledge graph or wiki with contact and social media information — LinkedIn, email, phone, Twitter/X — using premium enrichment APIs via the agentcash CLI. Use this skill when the user wants to enrich contacts, find someone's LinkedIn or email, fill in missing contact info for people in their wiki or knowledge base, or says 'enrich', 'find contact info', 'look up LinkedIn', 'fill in missing info', or anything about augmenting people/contact pages with external data."
 argument-hint: "[all | <person-name>]"
 ---

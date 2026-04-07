@@ -30,9 +30,14 @@ Commands:
 
 The wiki follows Karpathy's vision closely: source documents land in `raw/`, the LLM compiles them into a `wiki/` directory of interconnected articles, and Obsidian serves as the viewing frontend. The LLM maintains index files, backlink graphs, and summaries so that even at scale (~400K+ words), it can navigate the knowledge base to answer complex queries without needing RAG infrastructure.
 
-### `/enrich-knowledge-graph` — Contact Enrichment
+### `/enrich` — Contact Enrichment
 
 Enriches people pages in the wiki with real contact and social data — LinkedIn profiles, emails, phone numbers, Twitter/X handles — using premium enrichment APIs (Minerva, Apollo) via pay-per-call micropayments. It scans the knowledge graph for people with missing contact info, calls the APIs, validates matches, and writes the data back into the existing frontmatter schema.
+
+| Command | What it does |
+|---|---|
+| `/enrich all` | Scan the knowledge graph and enrich all people with missing contact info |
+| `/enrich <name>` | Enrich a specific person by name |
 
 ## AgentCash
 
