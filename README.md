@@ -9,6 +9,12 @@ Inspired by [Andrej Karpathy's tweet](https://x.com/kaborsky) on LLM Knowledge B
 
 This plugin provides the skills to make that workflow real inside Claude Code.
 
+## Installation
+
+```bash
+npx skills add fmhall/knowledge-base
+```
+
 ## Skills
 
 ### `/wiki` — Personal Knowledge Wiki
@@ -29,6 +35,25 @@ Commands:
 | `/wiki reorganize` | Rethink and restructure the wiki's organization |
 
 The wiki follows Karpathy's vision closely: source documents land in `raw/`, the LLM compiles them into a `wiki/` directory of interconnected articles, and Obsidian serves as the viewing frontend. The LLM maintains index files, backlink graphs, and summaries so that even at scale (~400K+ words), it can navigate the knowledge base to answer complex queries without needing RAG infrastructure.
+
+### `/linkedin-export` — LinkedIn Connections Import
+
+Walks the user through exporting their LinkedIn connections data, then processes the CSV to create people pages in the wiki. Handles the quirks of LinkedIn's export format (2-line preamble, sparse emails, `.zip` files that aren't actually zipped) and triages connections by company so the user can pick which groups to import rather than creating 2,000 stubs.
+
+| Command | What it does |
+|---|---|
+| `/linkedin-export` | Guide through export and process connections |
+| `/linkedin-export path/to/Connections.csv` | Process an already-downloaded CSV |
+
+### `/imessage-export` — iMessage Conversations Import
+
+Exports iMessage conversations from the macOS Messages database using [`imessage-exporter`](https://github.com/ReagentX/imessage-exporter), then analyzes the most active conversations to create or update people pages with relationship context that only personal messages reveal — closeness, shared interests, how the user actually knows someone.
+
+| Command | What it does |
+|---|---|
+| `/imessage-export` | Export last 30 days and analyze top contacts |
+| `/imessage-export --days 90` | Export last 90 days |
+| `/imessage-export --top 100` | Analyze top 100 conversations instead of default 50 |
 
 ### `/enrich` — Contact Enrichment
 

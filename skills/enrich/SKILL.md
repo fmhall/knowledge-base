@@ -6,7 +6,22 @@ argument-hint: "[all | <person-name>]"
 
 # Enrich Knowledge Graph
 
-Enrich people pages in a user's knowledge graph or wiki with contact and social media data from premium APIs (Minerva, Apollo) via the `agentcash` CLI. Minerva is the primary API — it returns richer data (work/personal emails, phones, Twitter, demographics, wealth signals) at the same price as Apollo ($0.05/person). Apollo is the fallback for name+company lookups when no LinkedIn URL is available. The APIs cost real money (typically 5-7 cents per person), so the skill guides the user through funding before making any paid calls.
+Enrich people pages in a user's knowledge graph or wiki with contact and social media data from premium APIs (Minerva, Apollo) via agentcash. Minerva is the primary API — it returns richer data (work/personal emails, phones, Twitter, demographics, wealth signals) at the same price as Apollo ($0.05/person). Apollo is the fallback for name+company lookups when no LinkedIn URL is available. The APIs cost real money (typically 5-7 cents per person), so the skill guides the user through funding before making any paid calls.
+
+## MCP vs CLI
+
+If the agentcash MCP server is available (i.e. you have access to tools like `mcp__agentcash__fetch`), **always use the MCP tools instead of the CLI commands**. They are faster, don't require `npx`, and work directly within the conversation. Here is the mapping:
+
+| CLI command | MCP tool |
+|---|---|
+| `npx agentcash balance` | `mcp__agentcash__get_balance` |
+| `npx agentcash fetch <url> ...` | `mcp__agentcash__fetch` (pass `url`, `method`, `body`) |
+| `npx agentcash check <url>` | `mcp__agentcash__check_endpoint_schema` (pass `url`) |
+| `npx agentcash discover <origin>` | `mcp__agentcash__discover_api_endpoints` (pass `url`) |
+| `npx agentcash accounts` | `mcp__agentcash__list_accounts` |
+| `npx agentcash onboard <code>` | `mcp__agentcash__redeem_invite` (pass the code) |
+
+The CLI commands shown throughout this skill are the **fallback** for when the MCP server is not installed. If MCP tools are available, use them everywhere you see a CLI example below.
 
 ## Interaction rules
 
